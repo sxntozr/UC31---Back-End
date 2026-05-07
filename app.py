@@ -30,9 +30,6 @@ def semestre(x):
 def pagamento(valor):
     return 'Você pagou: '+ str(valor)
 
-if __name__ == '__main__':
-    app.run()
-
 @app.route("/arearestrita/<id>")
 def area(id):
     cadeados = {
@@ -53,5 +50,11 @@ def operacao(tipo, op1, op2):
 
     return f"Resultado: {operacoes.get(tipo, 'Operação inválida')}"
 
+@app.route('/somar', defaults={"n1": "0", "n2": "0"})
+@app.route('/somar/<int:n1>/<int:n2>')
+def somar(n1, n2):
+    resultado = n1 + n2
+    return str(resultado)
 
-app.run()
+if __name__ == '__main__':
+    app.run()
