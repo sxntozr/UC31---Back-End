@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/index')
 def home():
-    return 'OLLAALALAA'
+    return 'Seja Bem Vindo(a)'
 
 @app.route('/pizzaria/<sabor>')
 def tabela(sabor):
